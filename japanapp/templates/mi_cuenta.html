@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+  
+
+    
+    
+<style>
+
+    .details-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+
+    .details-list {
+        padding: 10px 0;
+    }
+
+    .details-list p {
+        margin-bottom: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .details-card {
+            padding: 15px;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="details-card">
+                <div class="details-list" style="max-width: 600px; margin: 0 auto; padding: 20px; text-align: center;">
+                    <h1>Mi cuenta</h1>
+                    <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+                    <p><strong>Primer Nombre:</strong> {{ user.first_name }}</p>
+                    <p><strong>Apellidos:</strong> {{ user.last_name }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Teléfono:</strong> {{ user.telefono }}</p>
+                    {% if user.avatar %}
+                        <img src="{{ user.avatar.url }}" alt="Avatar" style="max-width: 200px; height: auto;">
+                    {% else %}
+                        <p>No hay avatar disponible</p>
+                    {% endif %}
+                
+                    <div style="margin-top: 20px;">
+                        <a  class="btn btn-primary">Cambiar Contraseña</a>
+                        <a class="btn btn-primary">Cambiar Avatar</a>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a  class="btn btn-primary">Cambiar Email</a>
+                        <a class="btn btn-primary">Cambiar Telefono</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+

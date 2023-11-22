@@ -1,0 +1,99 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% load static %}
+
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Enlaces a Bootstrap 4 CSS y JavaScript -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+</head>
+
+<body>
+    <!-- Navbar con color negro -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img width="30" height="30" src="{% static 'img/favicon.ico' %}"> Japan-Tuner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {% if request.path != "/register/" %}
+            {% if request.path != "/accounts/login/" %}
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/proyecto/">Mis proyectos</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/Coches/">Coches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Escapes/">Escapes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Llantas/">Llantas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Volantes/">Volantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Body_Kits/">Body_Kits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Suspension/">Suspension</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Filtros/">Filtros</a>
+                </li>
+            </ul>
+
+            <form action="{% url 'search_results' %}" method="get" class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="ml-auto">
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Mi cuenta</a>
+                    </li>
+                </ul>
+                <p class="navbar-text">
+                    Hola, {{ user.username }}! <a href="{% url 'logout' %}" class="btn btn-link">Log Out</a>
+                </p>
+               
+                {% else %}
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Loguéate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Regístrate</a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

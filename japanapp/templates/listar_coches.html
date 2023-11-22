@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block content %}
+
+<h2>Coches de la Marca {{ coches.0.marca }}</h2>
+<br>
+{% for coche in coches %}
+    <p>{{ coche.modelo }}</p>
+    {% if coche.img %}
+        <img id="coche-img" src="{{ coche.img.url }}" alt="{{ coche.marca }} - {{ coche.modelo }}">
+    {% endif %}
+{% endfor %}
+
+</body>
+
+
+{% endblock %}

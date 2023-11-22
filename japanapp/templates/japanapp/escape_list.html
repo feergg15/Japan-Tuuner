@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Listado de escapes</h2>
+    <ul id="img-ul">
+        {% for escape in object_list %}
+            <li id="img-li">
+                <img id="escape-img" src="{{ escape.img.url }}">
+                <a id="escape-a" href="{{ escape.id }}">{{ escape.marca }} {{ escape.modelo_escape }}</a>
+            </li>
+        
+        {% endfor %}    
+    </ul>
+{% endblock %}

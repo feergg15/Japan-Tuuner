@@ -1,0 +1,178 @@
+h2{
+    margin: 0;     
+    color: black;
+    padding-top: 90px;
+    text-align: center  ;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+
+.navbar{
+
+    height: 140px;
+
+}
+
+.item{
+    background: #333;    
+    text-align: center;
+    height: 300px !important;
+}
+.carousel{
+    margin-top: 20px;
+    height: 50%;
+    width: 50%;
+}
+.bs-example{
+  margin: 20px;
+}
+
+.marca-img {
+    width: 100px; /* Ajusta el valor según tus necesidades */
+    /* Puedes agregar más estilos según sea necesario */
+}
+
+
+
+#img-ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Usa flexbox para colocar los elementos en línea */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no haya espacio */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    
+}
+#img-li {
+    display: flex; /* Asegura que cada elemento sea un contenedor flex */
+    flex-direction: column; /* Coloca el texto debajo de la imagen */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-right: 60px; /* Espacio entre elementos */
+}
+img#llanta-img {
+    margin-top: 2cm;
+    width: 100px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+#llanta-a {
+
+    color: black;
+}
+
+#img-ul-coche {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Usa flexbox para colocar los elementos en línea */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no haya espacio */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    
+}
+#img-li-coche {
+    display: flex; /* Asegura que cada elemento sea un contenedor flex */
+    flex-direction: column; /* Coloca el texto debajo de la imagen */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin-right: 60px; /* Espacio entre elementos */
+}
+
+
+img#coche-img{
+
+    margin-top: 2cm;
+    width: 200px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+img#escape-img{
+
+    margin-top: 2cm;
+    width: 200px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+img#volante-img{
+
+    margin-top: 2cm;
+    width: 300px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+img#suspension-img{
+
+    margin-top: 2cm;
+    width: 300px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+img#filtro-img{
+
+    margin-top: 2cm;
+    width: 250px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+img#bk-img{
+
+    margin-top: 2cm;
+    width: 300px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.header-panel {
+    background-color: #000;
+    padding: 15px 0;
+}
+
+.header-panel .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-panel img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-form {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+}
+
+.search-form button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 7px 12px;
+    border-radius: 5px;
+}
+
+/* Media query para ajustar el diseño en dispositivos más pequeños */
+@media (max-width: 767px) {
+    .header-panel .container {
+        padding: 0 15px;
+    }
+    .header-panel .col-6.col-md-3 {
+        text-align: left;
+    }
+    .header-panel .col-6.col-md-9 {
+        text-align: right;
+    }
+}
+
+.logo img {
+    max-width: 30%;
+    height: auto;
+}
+

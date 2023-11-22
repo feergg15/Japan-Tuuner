@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Registrate{% endblock %}
+
+
+{% block content %}  
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Registro de Usuario</div>
+                    <div class="card-body">
+                        <form method="POST" class="form-group">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_username">Nombre de Usuario</label>
+                                {{ form.username }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_email">Correo Electrónico</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_password1">Contraseña</label>
+                                {{ form.password1 }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_password2">Confirmar Contraseña</label>
+                                {{ form.password2 }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_telefono">Pon el telefono</label>
+                                {{ form.telefono }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_avatar">Pon el avatar</label>
+                                {{ form.avatar }}
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% comment %} {{ request.path }} {% endcomment %}
+{% endblock %}
+

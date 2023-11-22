@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block content %}
+
+<h2>Seleccione la Marca para su Proyecto</h2>
+
+<style>
+    .marca-img {
+        width: 150px; /* Tamaño predeterminado para todas las marcas */
+        margin: 100px; /* Agrega espacio entre las imágenes */
+    }
+
+    /* Estilos específicos para cada marca */
+    .marca-img-nissan {
+        width: 150px; /* Ajusta el tamaño según tus necesidades */
+    }
+
+    .marca-img-mazda {
+        width: 120px; /* Ajusta el tamaño según tus necesidades */
+    }
+
+    .marca-img-honda {
+        width: 130px; /* Ajusta el tamaño según tus necesidades */
+    }
+
+    .marca-img-mitsubishi {
+        width: 140px; /* Ajusta el tamaño según tus necesidades */
+    }
+
+    .marca-img-toyota {
+        width: 110px; /* Ajusta el tamaño según tus necesidades */
+    }
+</style>
+
+<form method="post" action="{% url 'crear_proyecto' %}">
+    {% csrf_token %}
+    
+    {% for marca in marcas %}
+        <label>
+            <input type="radio" name="marca" value="{{ marca.nombre }}" style="display:none">
+            <button type="submit" name="marca" value="{{ marca.nombre }}" style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                <img src="{% static 'img/' %}{{ marca.imagen }}" alt="{{ marca.nombre }}" class="marca-img">
+            </button>
+        </label>
+    {% endfor %}
+    
+    <br><br>
+
+</form>
+
+
+{% endblock %}

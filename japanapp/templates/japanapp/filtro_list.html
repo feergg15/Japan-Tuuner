@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Listado de filtros</h2>
+    <ul id="img-ul">
+        {% for filtro in object_list %}
+            <li id="img-li">
+                <img id="filtro-img" src="{{ filtro.img.url }}">
+                <a id="llanta-a" href="{{ filtro.id }}">{{ filtro.marca }} {{ filtro.modelo_filtro }}</a>
+            </li>
+        
+        {% endfor %}    
+    </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Listado de body_kits</h2>
+    <ul id="img-ul">
+        {% for body_kit in object_list %}
+            <li id="img-li">
+                <img id="bk-img" src="{{ body_kit.img.url }}">
+                <a id="llanta-a" href="{{ body_kit.id }}">{{ body_kit.marca }} {{ body_kit.modelo_bk }}</a>
+            </li>
+        
+        {% endfor %}    
+    </ul>
+{% endblock %}

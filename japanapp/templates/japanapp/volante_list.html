@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Listado de volantes</h2>
+    <ul id="img-ul">
+        {% for volante in object_list %}
+            <li id="img-li">
+                <img id="volante-img" src="{{ volante.img.url }}">
+                <a id="llanta-a" href="{{ volante.id }}">{{ volante.marca }} {{ volante.modelo_volante }}</a>
+            </li>
+        
+        {% endfor %}    
+    </ul>
+{% endblock %}

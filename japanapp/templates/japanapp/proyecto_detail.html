@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+    .details-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+    
+    .details-list {
+        padding: 10px 0;
+    }
+    
+    .details-list p {
+        margin-bottom: 5px;
+    }
+    
+    @media (max-width: 768px) {
+        .details-card {
+            padding: 15px;
+        }
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="details-card">
+                <h1 class="text-center">{{ object.modelo_coche }}</h1>
+                <div class="details-list">
+                    <p><strong>Modelo Escape:</strong> {{ object.modelo_escape }}</p>
+                    <p><strong>Modelo Llanta:</strong> {{ object.modelo_llanta }}</p>
+                    <p><strong>Modelo Volante:</strong> {{ object.modelo_volante }}</p>
+                    <p><strong>Modelo Body_Kits:</strong> {{ object.modelo_bk }}</p>
+                    <p><strong>Modelo Suspension:</strong> {{ object.modelo_suspes }}</p>
+                    <p><strong>Modelo Filtro:</strong> {{ object.modelo_filtro }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

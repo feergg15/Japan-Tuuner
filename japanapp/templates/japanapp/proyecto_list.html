@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Tus proyectos{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-between mb-4">
+            <div class="col-md-6 mx-auto">
+                <h2 class="text-center">Tus proyectos</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-end mt-4">
+            <div class="col-md-3 text-right">
+                <a href="{% url 'Proyecto-add' %}" class="btn btn-dark">Añadir Proyecto</a>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ul class="list-group">
+                    {% for proyecto in object_list %}
+                        <li class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    {% if proyecto.img.url %}
+                                        <img class="img-fluid" src="{{ proyecto.img.url }}" alt="Imagen del proyecto">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-9">
+                                    <a style="color: black" href="{{ proyecto.id }}">{{ proyecto.id }} | {{ proyecto.modelo_coche }}</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+{% endblock %}
