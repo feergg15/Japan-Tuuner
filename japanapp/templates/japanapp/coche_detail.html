@@ -1,5 +1,46 @@
+{% extends "base.html" %}
 
-<h1>{{object.modelo }}</h1>
-<p>Marca : {{ object.marca }}</p>
-<p>Año: {{ object.año }}</p>
-<p>Estilo: {{ object.estilo }}</p>
+{% block content %}
+
+<style>
+
+    .details-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+    
+    .details-list {
+        padding: 10px 0;
+    }
+    
+    .details-list p {
+        margin-bottom: 5px;
+    }
+    
+    @media (max-width: 768px) {
+        .details-card {
+            padding: 15px;
+        }
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="details-card">
+                <h1 class="text-center">{{ object.modelo }}</h1>
+                <div class="details-list">
+                    <p><strong>Marca</strong> {{ object.marca }}</p>
+                    <p><strong>Año:</strong> {{ object.año}}</p>
+                    <p><strong>Estilo:</strong> {{ object.estilo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+            
+                    <h2 class="text-center mb-4">Editar Perfil</h2>
+                    <form method="POST" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_username">Nombre de Usuario</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">Correo Electrónico</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_telefono">Teléfono</label>
+                            {{ form.telefono }}
+                        </div>
+                        <div class="form-group">
+                            <label for="id_avatar">Avatar</label>
+                            {{ form.avatar }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark">Guardar Cambios</button>
+                            <div style="margin-top: 20px;">
+                                <a href="{% url 'password_reset' %}" class="btn btn-primary" style="background-color: black;">Cambiar Contraseña</a>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
+    @media (max-width: 768px) {
+        .col-md-8 {
+            max-width: 100%;
+        }
+    }
+</style>

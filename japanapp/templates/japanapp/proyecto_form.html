@@ -3,51 +3,108 @@
 {% block title %}Crear Proyecto - Japanapp{% endblock %}
 
 {% block content %}
-<div class="container mt-5 align-items-center">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card text-left">
-                <div class="card-header">Crea tu nuevo proyecto!!!!</div>
-                <div class="card-body">
-                    <form method="POST" class="form-group" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="id_username">Elige tu coche</label>
-                            {{ form.modelo_coche }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_email">Elige el escape que deseas ponerle a tu coche</label>
-                            {{ form.modelo_escape }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_password1">Elige las llantas que deseas ponerle a tu coche</label>
-                            {{ form.modelo_llanta}}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_password2">Elige el volante que deseas ponerle a tu coche</label>
-                            {{ form.modelo_volante }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_telefono">Elige el Body_Kit que deseas ponerle a tu coche</label>
-                            {{ form.modelo_bk }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_telefono">Elige la suspension que deseas ponerle a tu coche</label>
-                            {{ form.modelo_suspes }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_telefono">Elige el Filtro que deseas ponerle a tu coche</label>
-                            {{ form.modelo_filtro }}
-                        </div>
-                        <div class="form-group">
-                            <label for="id_telefono">Sube la foto de tu proyecto</label>
-                            {{ form.img }}
-                        </div>
-                        <button type="submit" class="btn btn-success">Crear Proyecto</button>
-                    </form>
-                </div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 50px;
+    }
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .error-message {
+        color: #ff0000;
+        margin-bottom: 10px;
+    }
+    .success-message {
+        color: #008000;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <div class="error-message">
+                Por favor, corrija los siguientes errores:
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
             </div>
-        </div>
-    </div>
+        {% endif %}
+        {% if success_message %}
+            <div class="success-message">{{ success_message }}</div>
+        {% endif %}  
+        <p>
+            <label for="id_username">Elige tu coche:</label><br>
+            {{ form.modelo_coche }}
+        </p>
+        <p>
+            <label for="id_email">Elige el escape:</label><br>
+            {{ form.modelo_escape }}
+        </p>
+        <p>
+            <label for="id_email">Elige tus llantas:</label><br>
+            {{ form.modelo_llanta }}
+        </p>
+        <p>
+            <label for="id_email">Elige tus suspensiones </label><br>
+            {{ form.modelo_suspes}}
+        </p>
+        <p>
+            <label for="id_email">Elige el filtro que deseas ponerle:</label><br>
+            {{ form.modelo_filtro }}
+        </p>
+        <p>
+            <label for="id_email">Elige el volante:</label><br>
+            {{ form.modelo_volante }}
+        </p>
+        <p>
+            <label for="id_email">Elige el Body_Kit:</label><br>
+            {{ form.modelo_bk }}
+        </p>
+        <p>
+            <label for="id_email">Añade la foto de tu proyecto</label><br>
+            {{ form.img}}
+        </p>
+        
+        <input type="submit" value="Guardar">
+    </form>
 </div>
 {% endblock %}

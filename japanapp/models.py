@@ -9,7 +9,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=70,blank=True,unique=True) 
     avatar = models.ImageField(upload_to='img', height_field=None, blank=True,null=True)
     # def get_absolute_url(self):
-    #     return reverse('japanapp:coche-detalle', kwargs={'pk': self.pk})
+    #     return reverse(s'japanapp:coche-detalle', kwargs={'pk': self.pk})
     # REQUIRED_FIELDS = ["telefono", "email" , "avatar"]
     
 

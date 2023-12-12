@@ -8,10 +8,11 @@ from django.views import View
 from django.contrib.auth import update_session_auth_hash
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView
 
 from japanapp.models import User,Coche,Escape,Llanta,Volante,Body_Kit,Suspension,Filtro,Proyecto
 
-from .forms import RegisterForm
+from .forms import RegisterForm,UserEditForm
 
 class Index(TemplateView):
     template_name = 'index.html'
@@ -194,29 +195,53 @@ def my_account(request):
 
     return render(request, 'mi_cuenta.html', {'user': user})
 
+@login_required
+def editar_usuario(request):
+    user = request.user
+    if request.method == 'POST':
+        form = UserEditForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('mi_cuenta')
+    else:
+        form = UserEditForm(instance=user)
+    
+    return render(request, 'editar_usuario.html', {'form': form})
+
+
 class MyView(LoginRequiredMixin, View):
     login_url = "/login/"
     redirect_field_name = "redirect_to"
 
 
-def password_change(request):
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'password-reset.html'  
+    success_url = reverse_lazy('password_reset_done')  
+
+    def form_valid(self, form):
+
+        return super().form_valid(form)
+
+def register(request):
     if request.method == "POST":
-        form = PasswordChangeForm(user=request.user, data=request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)
+            return redirect('login')  # Redirige al usuario a la página de inicio de sesión después del registro exitoso
     else:
-        ...
-class register(CreateView):
-    template_name = "registration/register.html"
-    model = User
-    form_class = RegisterForm
+        form = RegisterForm()
+
+    return render(request, "registration/register.html", {"form": form})
 
 class ProyectoCreateView(CreateView):
     model = Proyecto
-    fields = "__all__"
+    fields = ['modelo_coche', 'modelo_escape', 'modelo_llanta', 'modelo_suspes', 'modelo_filtro', 'modelo_volante', 'modelo_bk', 'img']
 
+    success_url = reverse_lazy("Proyecto-lista")
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 

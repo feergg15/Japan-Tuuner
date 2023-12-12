@@ -6,7 +6,6 @@
 {% bootstrap_messages %}
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -21,25 +20,21 @@
 </head>
 
 <body>
-    <!-- Navbar con color negro -->
     <header class="header-panel">
         <div class="container">
             <div class="row align-items-center">
-                <!-- Div a la izquierda con el logo y texto -->
                 <div class="col-md-4 text-white d-flex align-items-center">
                     <div class="logo mr-3">
                         <img href="" src="{% static 'img/favicon.ico' %}" alt="Logo de Japan Tuner">
                     </div>
                     <p>Japan Tuner</p>
                 </div>
-                <!-- Div central con la barra de búsqueda -->
                 <div class="col-md-4">
                     <form class="search-form" action="{% url 'search_results' %}" method="GET">
                         <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search..." aria-label="Search">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
-                <!-- Div a la derecha con las etiquetas span -->
                 <div class="col-md-4 text-right">
                     {% if user.is_authenticated %}
                     <a href="{% url 'mi_cuenta' %}" class="text-white">Mi cuenta</a>

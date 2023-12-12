@@ -2,12 +2,6 @@
 
 {% block content %}
 
-
-
-  
-
-    
-    
 <style>
 
     .details-card {
@@ -51,12 +45,7 @@
                     {% endif %}
                 
                     <div style="margin-top: 20px;">
-                        <a  class="btn btn-primary">Cambiar Contraseña</a>
-                        <a class="btn btn-primary">Cambiar Avatar</a>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a  class="btn btn-primary">Cambiar Email</a>
-                        <a class="btn btn-primary">Cambiar Telefono</a>
+                        <a href="{% url 'editar-usuario' %}" class="btn btn-primary" style="background-color: black;">Editar Perfil</a>
                     </div>
                 </div>
             </div>

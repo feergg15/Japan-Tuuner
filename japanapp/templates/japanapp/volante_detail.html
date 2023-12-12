@@ -2,3 +2,49 @@
 <h1>{{object.modelo_volante }}</h1>
 <p>Marca : {{ object.marca }}</p>
 <p>Material: {{ object.material }}</p>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+
+    .details-card {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+    }
+    
+    .details-list {
+        padding: 10px 0;
+    }
+    
+    .details-list p {
+        margin-bottom: 5px;
+    }
+    
+    @media (max-width: 768px) {
+        .details-card {
+            padding: 15px;
+        }
+    }
+
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="details-card">
+                <h1 class="text-center">{{ object.modelo_volante}}</h1>
+                <div class="details-list">
+                    <p><strong>Marca</strong> {{ object.marca }}</p>
+                    <p><strong>Material:</strong> {{ object.material}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

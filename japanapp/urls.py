@@ -57,9 +57,10 @@ urlpatterns = [
     path("Filtros/<int:pk>/delete/", FiltroDeleteView.as_view(), name="Filtro-delete"),
 
     path('mi_cuenta/', views.my_account, name='mi_cuenta'),
+    path('editar-usuario', views.editar_usuario, name='editar-usuario'),
     
     path("accounts/", include("django.contrib.auth.urls")),
-    path('register/', register.as_view(), name='register'),
+    path('register/', register, name='register'),
     
     path("Proyecto/", ProyectoListView.as_view(),name="Proyecto-lista"),
     path("Proyecto/<int:pk>/", ProyectoDetailView.as_view(),name="Proyecto-detalles"),
